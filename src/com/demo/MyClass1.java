@@ -175,21 +175,48 @@ public class MyClass1 {
 		System.out.println(staff.get(0).getName());
 	}
 
+	/**
+	 * @枚举类
+	 * @author QZidane
+	 *
+	 */
+	public enum Size {
+		SMALL("S"), MEDIUM("M"), LARGE("L");
+		private String abbr;
+
+		private Size(String abbr) {	//默认私有/必须私有，只提供给枚举项使用 
+			this.abbr = abbr;
+		}
+
+		public String getAbbr() {
+			return abbr;
+		}
+
+	};
+	
+	public void about_enum(){
+		Size s = Enum.valueOf(Size.class, "SMALL");//获得字符串"SMALL"对应的Size值
+		System.out.println(s);//SMALL
+		System.out.println(Size.SMALL.toString());//SMALL
+		System.out.println(Size.SMALL.getDeclaringClass());
+		System.out.println(Size.SMALL == Size.SMALL);
+		Size[] values = Size.values();
+		System.out.println(Arrays.toString(values)); //[SMALL, MEDIUM, LARGE]
+
+	}
+
 	public static void main(String... args) {
 
 		MyClass1 mc1 = new MyClass1("abc", 123);
 
 		// mc1.about_arrayList();
-		mc1.about_array();
+		//mc1.about_array();
+		mc1.about_enum();
 		// mc1.about_string();
 		// mc1.about_date();
 		// mc1.about_decimal();
 		// mc1.about_array();
 
-		// System.out.println(mc1.toString());
-		//
-		// Random r = new Random();
-		// System.out.println(r.nextDouble());
 
 	}
 
