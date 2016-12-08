@@ -31,7 +31,6 @@ public class RunnableDemo implements Runnable {
 			threadObj1 = new Thread(this, threadName);
 			threadObj1.start();
 		}
-
 	}
 
 }
