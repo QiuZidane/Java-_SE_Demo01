@@ -16,13 +16,14 @@ public class ThreadTest {
 		threadDemo1.setName("td1");
 
 		threadDemo1.start();
-		threadDemo2.start();
+//		threadDemo2.start();
 
 		threadDemo1.join(1000);
 		// threadDemo1.interrupt();
-		System.out.println(threadDemo1.isAlive());
-		System.out.println(threadDemo1.currentThread());
-		threadDemo1.dumpStack();
+//		System.out.println(threadDemo1.isAlive());
+//		System.out.println(threadDemo1.currentThread());
+//		threadDemo1.dumpStack();
+		threadDemo1.run();
 
 	}
 
