@@ -5,17 +5,17 @@ public abstract class Person {
 	public abstract String getDescription();
 	
 	void getPersonName_default(){
-		System.out.println("Ä¬ÈÏ");;
+		System.out.println("å‘µå‘µ");;
 	};
 	
 	protected void getPersonName_protect(){
-		System.out.println("±£»¤");
+		System.out.println("å‘µå‘µå‘µ1");
 	};
 
 	private String name;
 	
 	public Person() {
-		this.name = "ÎŞÃûÊÏ";
+		this.name = "åˆå§‹åŒ–åå­—";
 	}
 
 	public Person(String name) {

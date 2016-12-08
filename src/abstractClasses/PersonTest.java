@@ -25,10 +25,10 @@ public class PersonTest {
 		people[0].getPersonName_default();
 		
 		if (people[0].equals(people[1])) {
-			System.out.println("ÏàµÈ");
+			System.out.println("æˆ‘æ™•");
 		}
 		if (Objects.equals(people[0], people[1])) {
-			System.out.println("ÏàµÈ");
+			System.out.println("ä¹±ç äº†");
 		}
 		
 		System.out.println(Objects.hash(1));

@@ -11,7 +11,7 @@ public class Employee extends Person {
 
 	public Employee() {
 
-		super("无名氏");
+		super("娴嬭瘯鍚嶅瓧");
 		salary = 0.000;
 		GregorianCalendar calendar = new GregorianCalendar(1900, 0, 1);
 		hireDay = calendar.getTime();
@@ -46,7 +46,7 @@ public class Employee extends Person {
 	}
 
 	/**
-	 * 覆盖父类的equals方法
+	 * 瑕嗙洊equals
 	 */
 	@Override
 	public boolean equals(Object obj) {
