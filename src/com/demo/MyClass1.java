@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import inheritance.Employee;
+import inheritance.Employee_ih;
 
 public class MyClass1 {
 
@@ -36,11 +36,11 @@ public class MyClass1 {
 
 	/**
 	 * @author QiuZidane
-	 *         <h2>MyClass1µÄ¹¹Ôì·½·¨</h2>
+	 *         <h2>MyClass1ï¿½Ä¹ï¿½ï¿½ì·½ï¿½ï¿½</h2>
 	 * @param int1
 	 *            TODO
 	 * 
-	 * @see <a href="www.baidu.com">BaiDuÒ»ÏÂ</a>
+	 * @see <a href="www.baidu.com">BaiDuÒ»ï¿½ï¿½</a>
 	 */
 	MyClass1(String initString, int int1) {
 
@@ -48,7 +48,7 @@ public class MyClass1 {
 
 	}
 
-	// ¹¹Ôì·½·¨ -> µÈÍ¬ÓÚ public static MyClass1() »òÕß MyClass1()
+	// ï¿½ï¿½ï¿½ì·½ï¿½ï¿½ -> ï¿½ï¿½Í¬ï¿½ï¿½ public static MyClass1() ï¿½ï¿½ï¿½ï¿½ MyClass1()
 	public MyClass1() {
 		// TODO Auto-generated constructor stub
 	}
@@ -60,7 +60,7 @@ public class MyClass1 {
 
 		String[] strarr1 = new String[10];
 		for (int i = 0; i < strarr1.length; i++) {
-			strarr1[i] = "¹þ¹þ";
+			strarr1[i] = "ï¿½ï¿½ï¿½ï¿½";
 		}
 
 		System.out.println(Arrays.toString(strarr1));
@@ -85,7 +85,7 @@ public class MyClass1 {
 	}
 
 	/**
-	 * ÓÃÓÚ²âÊÔ×Ö·û´®Ïà¹ØÖªÊ¶µã
+	 * ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ÖªÊ¶ï¿½ï¿½
 	 */
 	private void about_string() {
 
@@ -110,13 +110,13 @@ public class MyClass1 {
 	/**
 	 * 
 	 * @param datestr
-	 *            ÈÕÆÚ
+	 *            ï¿½ï¿½ï¿½ï¿½
 	 */
 	public void about_date() {
 		Date myDate = new Date();
 		// Date myDate2 = new Date(99, 2, 2);
 
-		// Ê¹ÓÃtoString()º¯ÊýÏÔÊ¾ÈÕÆÚÊ±¼ä
+		// Ê¹ï¿½ï¿½toString()ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 		System.out.println(myDate.toString());
 		// System.out.println(myDate2.getTime());
 
@@ -163,20 +163,20 @@ public class MyClass1 {
 	}
 
 	public void about_arrayList() {
-		ArrayList<Employee> staff = new ArrayList<Employee>();
+		ArrayList<Employee_ih> staff = new ArrayList<Employee_ih>();
 		System.out.printf("staff.size()=%d \n", staff.size());
-		staff.add(new Employee("Zidane", 60000, 2005, 7, 4));
+		staff.add(new Employee_ih("Zidane", 60000, 2005, 7, 4));
 		System.out.printf("staff.size()=%d \n", staff.size());
-		staff.trimToSize(); // µ÷Õû´æ´¢ÇøÓò´óÐ¡£¬µ÷ÕûºóÔÙ´ÎÌí¼ÓÔªËØµÄ»°£¬Òª»¨Ê±¼äÔÙ´ÎÒÆ¶¯´æ´¢¿é
-		staff.add(new Employee("Zidane", 60000, 2005, 7, 4));
+		staff.trimToSize(); // ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù´ï¿½ï¿½ï¿½ï¿½Ôªï¿½ØµÄ»ï¿½ï¿½ï¿½Òªï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ù´ï¿½ï¿½Æ¶ï¿½ï¿½æ´¢ï¿½ï¿½
+		staff.add(new Employee_ih("Zidane", 60000, 2005, 7, 4));
 		System.out.printf("staff.size()=%d \n", staff.size());
 		System.out.println(staff.get(0).getName());
-		staff.set(0, new Employee("Even", 7000, 2008, 7, 1));
+		staff.set(0, new Employee_ih("Even", 7000, 2008, 7, 1));
 		System.out.println(staff.get(0).getName());
 	}
 
 	/**
-	 * @Ã¶¾ÙÀà
+	 * @Ã¶ï¿½ï¿½ï¿½ï¿½
 	 * @author QZidane
 	 *
 	 */
@@ -184,7 +184,7 @@ public class MyClass1 {
 		SMALL("S"), MEDIUM("M"), LARGE("L");
 		private String abbr;
 
-		private Size(String abbr) {	//Ä¬ÈÏË½ÓÐ/±ØÐëË½ÓÐ£¬Ö»Ìá¹©¸øÃ¶¾ÙÏîÊ¹ÓÃ 
+		private Size(String abbr) {	//Ä¬ï¿½ï¿½Ë½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½Ë½ï¿½Ð£ï¿½Ö»ï¿½á¹©ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ 
 			this.abbr = abbr;
 		}
 
@@ -195,7 +195,7 @@ public class MyClass1 {
 	};
 	
 	public void about_enum(){
-		Size s = Enum.valueOf(Size.class, "SMALL");//»ñµÃ×Ö·û´®"SMALL"¶ÔÓ¦µÄSizeÖµ
+		Size s = Enum.valueOf(Size.class, "SMALL");//ï¿½ï¿½ï¿½ï¿½Ö·ï¿½"SMALL"ï¿½ï¿½Ó¦ï¿½ï¿½SizeÖµ
 		System.out.println(s);//SMALL
 		System.out.println(Size.SMALL.toString());//SMALL
 		System.out.println(Size.SMALL.getDeclaringClass());

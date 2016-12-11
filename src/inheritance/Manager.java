@@ -1,6 +1,6 @@
 package inheritance;
 
-public class Manager extends Employee {
+public class Manager extends Employee_ih {
 
 	private double bonus;
 

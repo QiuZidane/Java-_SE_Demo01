@@ -7,12 +7,12 @@ public class ManagerTest{
 		Manager boss = new Manager("Carl Cracker", 80000, 1987, 12, 15);
 		boss.setBonus(5000);
 		
-		Employee[] staff = new Employee[3];
+		Employee_ih[] staff = new Employee_ih[3];
 		staff[0] = boss;
-		staff[1] = new Employee("Harry Hacker", 50001, 1989, 10, 1);
-		staff[2] = new Employee("Tommy Tester", 40000, 1990, 3, 15);
+		staff[1] = new Employee_ih("Harry Hacker", 50001, 1989, 10, 1);
+		staff[2] = new Employee_ih("Tommy Tester", 40000, 1990, 3, 15);
 		
-		for(Employee e: staff){
+		for(Employee_ih e: staff){
 			System.out.println("name = "+ e.getName() + ", salary = "+e.getSalary());
 		}
 		
@@ -23,7 +23,7 @@ public class ManagerTest{
 		try {
 			Manager boss2 = (Manager) staff[1];
 		} catch (ClassCastException e) {
-			System.err.println("²»ÄÜ×ª»»:"+e.getMessage());
+			System.err.println("ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½:"+e.getMessage());
 		}
 		
 		
