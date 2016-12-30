@@ -15,7 +15,6 @@ public class InnerClassTest {
 		
 		JOptionPane.showMessageDialog(null, "Quit？");
 		System.exit(0);
-<<<<<<< HEAD
 		
 		Outer outer = new Outer();
 		/**
@@ -28,9 +27,7 @@ public class InnerClassTest {
 		
 		
 		
-=======
 
->>>>>>> 78257f72ed40d186c59182def1bc8f47d4e7adcc
 	}
 
 }
