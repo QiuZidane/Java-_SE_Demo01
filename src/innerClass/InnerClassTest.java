@@ -7,10 +7,15 @@ public class InnerClassTest {
 	public static void main(String[] args) {
 
 		TalkingClock clock = new TalkingClock(1000, true);
-		clock.start();
+		// 普通内部类
+		// clock.start();
+		// 局部内部类
+		clock.start_inner(2000, true);
+		clock.start_anonymous_inner(3000, true);
 		
 		JOptionPane.showMessageDialog(null, "Quit？");
 		System.exit(0);
+<<<<<<< HEAD
 		
 		Outer outer = new Outer();
 		/**
@@ -23,6 +28,9 @@ public class InnerClassTest {
 		
 		
 		
+=======
+
+>>>>>>> 78257f72ed40d186c59182def1bc8f47d4e7adcc
 	}
 
 }
