@@ -167,7 +167,7 @@ public class MyClass1 {
 		System.out.printf("staff.size()=%d \n", staff.size());
 		staff.add(new Employee_ih("Zidane", 60000, 2005, 7, 4));
 		System.out.printf("staff.size()=%d \n", staff.size());
-		staff.trimToSize(); // ����洢�����С��������ٴ����Ԫ�صĻ���Ҫ��ʱ���ٴ��ƶ��洢��
+		staff.trimToSize(); // 
 		staff.add(new Employee_ih("Zidane", 60000, 2005, 7, 4));
 		System.out.printf("staff.size()=%d \n", staff.size());
 		System.out.println(staff.get(0).getName());
