@@ -13,6 +13,11 @@ public class PairTest1 {
 
 }
 
+/**
+ * 友元类，包可见
+ * @author EvaZis
+ *
+ */
 class ArrayAlg {
 
 	public static Pair<String> minmax(String[] a) {
