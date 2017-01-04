@@ -15,6 +15,18 @@ public class InnerClassTest {
 		
 		JOptionPane.showMessageDialog(null, "Quit？");
 		System.exit(0);
+		
+		Outer outer = new Outer();
+		/**
+		 * 必须现有外部类对象才能生成内部类对象。<br>
+		 * 因为内部类需要访问外部类中的成员变量，成员变量必须先实例化
+		 */
+		Outer.inner inner = outer.new inner(); 
+		inner.setInt();
+		System.out.println(inner.innerInt);
+		
+		
+		
 
 	}
 

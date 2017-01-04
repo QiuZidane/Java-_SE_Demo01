@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import inheritance.Employee_ih;
+import pair1.PairTest1;
 
 public class MyClass1 {
 
@@ -167,7 +168,7 @@ public class MyClass1 {
 		System.out.printf("staff.size()=%d \n", staff.size());
 		staff.add(new Employee_ih("Zidane", 60000, 2005, 7, 4));
 		System.out.printf("staff.size()=%d \n", staff.size());
-		staff.trimToSize(); // ����洢�����С��������ٴ����Ԫ�صĻ���Ҫ��ʱ���ٴ��ƶ��洢��
+		staff.trimToSize(); //
 		staff.add(new Employee_ih("Zidane", 60000, 2005, 7, 4));
 		System.out.printf("staff.size()=%d \n", staff.size());
 		System.out.println(staff.get(0).getName());
@@ -176,15 +177,14 @@ public class MyClass1 {
 	}
 
 	/**
-	 * @ö����
-	 * @author QZidane
+	 * @ö���� @author QZidane
 	 *
 	 */
 	public enum Size {
 		SMALL("S"), MEDIUM("M"), LARGE("L");
 		private String abbr;
 
-		private Size(String abbr) {	//Ĭ��˽��/����˽�У�ֻ�ṩ��ö����ʹ�� 
+		private Size(String abbr) { // 枚举类的构造函数
 			this.abbr = abbr;
 		}
 
@@ -193,15 +193,15 @@ public class MyClass1 {
 		}
 
 	};
-	
-	public void about_enum(){
-		Size s = Enum.valueOf(Size.class, "SMALL");//����ַ�"SMALL"��Ӧ��Sizeֵ
-		System.out.println(s);//SMALL
-		System.out.println(Size.SMALL.toString());//SMALL
+
+	public void about_enum() {
+		Size s = Enum.valueOf(Size.class, "SMALL");// ����ַ�"SMALL"��Ӧ��Sizeֵ
+		System.out.println(s);// SMALL
+		System.out.println(Size.SMALL.toString());// SMALL
 		System.out.println(Size.SMALL.getDeclaringClass());
 		System.out.println(Size.SMALL == Size.SMALL);
 		Size[] values = Size.values();
-		System.out.println(Arrays.toString(values)); //[SMALL, MEDIUM, LARGE]
+		System.out.println(Arrays.toString(values)); // [SMALL, MEDIUM, LARGE]
 
 	}
 
@@ -210,13 +210,16 @@ public class MyClass1 {
 		MyClass1 mc1 = new MyClass1("abc", 123);
 
 		// mc1.about_arrayList();
-		//mc1.about_array();
-		mc1.about_enum();
+		// mc1.about_array();
+		 mc1.about_enum();
 		// mc1.about_string();
 		// mc1.about_date();
 		// mc1.about_decimal();
 		// mc1.about_array();
+		 
+		 
 
+		
 
 	}
 
