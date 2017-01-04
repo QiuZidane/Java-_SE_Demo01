@@ -19,6 +19,15 @@ public class MultException {
 		 */
 
 		try {
+			
+			/**
+			 * 强烈建议这样使用，那么finally里面抛出来的异常也会被catch捕捉到
+			 */
+			try {
+				
+			} finally {
+				
+			}
 
 		} catch (Exception e) {
 
