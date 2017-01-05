@@ -30,7 +30,11 @@ public class TCPEchoServer {
 		int servPort = Integer.parseInt(args[0]);
 
 		ServerSocket serverSocket = new ServerSocket(servPort);
-
+		
+		System.out.println("InetAddress="+serverSocket.getInetAddress());
+		System.out.println("LocalSocketAddress="+serverSocket.getLocalSocketAddress());
+		System.out.println("LocalPort="+serverSocket.getLocalPort());
+		
 		int recvMsgSize; // 接收信息的大小
 
 		byte[] receiveBuf = new byte[BUFSIZE]; // 接收缓存器
@@ -50,7 +54,8 @@ public class TCPEchoServer {
 
 			while ((recvMsgSize = in.read(receiveBuf)) != -1) {
 				// 读取输入并立刻输出，所以offset都是0
-				out.write(receiveBuf, 0, recvMsgSize);
+				out.write(receiveBuf, 0, recvMsgSize); // 将receiveBuf的第0位开始长度recvMsgSize的字节输出
+				System.out.println("向客户端传输数据:"+ new String(receiveBuf, "ISO-8859-1"));
 			}
 
 			clientSocket.close();
