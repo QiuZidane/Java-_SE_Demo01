@@ -21,7 +21,7 @@ public class TCPEchoClient {
 	 */
 	public static void main(String[] margs) throws UnknownHostException, IOException, InterruptedException {
 
-		String[] args = { "127.0.0.1", "Echo this 12345", "9090" };
+		String[] args = { "127.0.0.1", "Echo this 1234567", "9090" };
 
 		if ((args.length < 2) || (args.length > 3)) {
 			throw new IllegalArgumentException("IllegalArgumentException Parameter(s)");

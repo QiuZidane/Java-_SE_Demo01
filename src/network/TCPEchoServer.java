@@ -3,6 +3,7 @@ package network;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketAddress;
@@ -19,10 +20,82 @@ public class TCPEchoServer {
 
 	private static final int BUFSIZE = 32; // 接收缓存器大小
 
-	public static void main(String[] margs) throws IllegalAccessException, IOException {
+	/**
+	 * 正常accept,全量返回字符信息给client
+	 * 
+	 * @param serverSocket
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	private void acceptHandle(ServerSocket serverSocket) throws IOException, InterruptedException {
 
-		String[] args = {"9090"}; 
-		
+		int recvMsgSize; // 接收信息的大小
+		byte[] receiveBuf = new byte[BUFSIZE]; // 接收缓存器
+		byte[] helloByte = "Hello World again!".getBytes("ISO-8859-1");
+
+		// accept()方法会阻塞等待，直到有新的连接请求到来
+		// 如果服务端未调用accept()，连接就已经到达，那么连接将排入队列中，这时一调用accept()就会立刻响应了
+		Socket clientSocket = serverSocket.accept(); // 获取客户端连接
+
+		SocketAddress clientAddress = clientSocket.getRemoteSocketAddress();
+
+		System.out.println("正在处理客户端地址:" + clientAddress);
+
+		InputStream in = clientSocket.getInputStream();
+		OutputStream out = clientSocket.getOutputStream();
+
+		// out.write(helloByte);
+
+		while ((recvMsgSize = in.read(receiveBuf)) != -1) {
+			// 读取输入并立刻输出，所以offset都是0
+			out.write(receiveBuf, 0, recvMsgSize); //
+			// 将receiveBuf的第0位开始长度recvMsgSize的字节输出
+			System.out.println("向客户端传输数据:" + new String(receiveBuf, "ISO-8859-1"));
+		}
+
+		clientSocket.close();
+	}
+
+	/**
+	 * 每次读写一个字节
+	 * 
+	 * @param serverSocket
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	private void acceptHandle_1bytePertime(ServerSocket serverSocket) throws IOException, InterruptedException {
+
+		int recvMsgSize; // 接收信息的大小
+		byte[] receiveBuf = new byte[1]; // 接收缓存器
+
+		// accept()方法会阻塞等待，直到有新的连接请求到来
+		// 如果服务端未调用accept()，连接就已经到达，那么连接将排入队列中，这时一调用accept()就会立刻响应了
+		Socket clientSocket = serverSocket.accept(); // 获取客户端连接
+
+		SocketAddress clientAddress = clientSocket.getRemoteSocketAddress();
+
+		System.out.println("正在处理客户端地址:" + clientAddress);
+
+		InputStream in = clientSocket.getInputStream();
+		OutputStream out = clientSocket.getOutputStream();
+
+		while ((recvMsgSize = in.read(receiveBuf)) != -1) {
+			Thread.sleep(1000);
+			// 读取输入并立刻输出，所以offset都是0
+			out.write(receiveBuf, 0, recvMsgSize); //
+			// 将receiveBuf的第0位开始长度recvMsgSize的字节输出
+			System.out.println("向客户端传输数据:" + new String(receiveBuf, "ISO-8859-1"));
+		}
+
+		clientSocket.close();
+	}
+
+	public static void main(String[] margs) throws IllegalAccessException, IOException, InterruptedException {
+
+		TCPEchoServer server = new TCPEchoServer();
+
+		String[] args = { "9090" };
+
 		if (args.length != 1) {
 			throw new IllegalAccessException("参数错误");
 		}
@@ -30,35 +103,20 @@ public class TCPEchoServer {
 		int servPort = Integer.parseInt(args[0]);
 
 		ServerSocket serverSocket = new ServerSocket(servPort);
-		
-		System.out.println("InetAddress="+serverSocket.getInetAddress());
-		System.out.println("LocalSocketAddress="+serverSocket.getLocalSocketAddress());
-		System.out.println("LocalPort="+serverSocket.getLocalPort());
-		
-		int recvMsgSize; // 接收信息的大小
 
-		byte[] receiveBuf = new byte[BUFSIZE]; // 接收缓存器
+		System.out.println("InetAddress=" + serverSocket.getInetAddress());
+		System.out.println("LocalSocketAddress=" + serverSocket.getLocalSocketAddress());
+		System.out.println("LocalPort=" + serverSocket.getLocalPort());
+
+		// int recvMsgSize; // 接收信息的大小
+
+		// byte[] receiveBuf = new byte[BUFSIZE]; // 接收缓存器
+		// byte[] helloByte = "Hello World again!".getBytes("ISO-8859-1");
 
 		while (true) { // 长期运行，接收和发送的连接
 
-			// accept()方法会阻塞等待，直到有新的连接请求到来
-			// 如果服务端未调用accept()，连接就已经到达，那么连接将排入队列中，这时一调用accept()就会立刻响应了
-			Socket clientSocket = serverSocket.accept(); // 获取客户端连接
-
-			SocketAddress clientAddress = clientSocket.getRemoteSocketAddress();
-
-			System.out.println("正在处理客户端地址:" + clientAddress);
-
-			InputStream in = clientSocket.getInputStream();
-			OutputStream out = clientSocket.getOutputStream();
-
-			while ((recvMsgSize = in.read(receiveBuf)) != -1) {
-				// 读取输入并立刻输出，所以offset都是0
-				out.write(receiveBuf, 0, recvMsgSize); // 将receiveBuf的第0位开始长度recvMsgSize的字节输出
-				System.out.println("向客户端传输数据:"+ new String(receiveBuf, "ISO-8859-1"));
-			}
-
-			clientSocket.close();
+			// server.acceptHandle(serverSocket);
+			server.acceptHandle_1bytePertime(serverSocket);
 
 		}
 	}
