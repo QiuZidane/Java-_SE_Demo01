@@ -15,7 +15,6 @@ public class ThreadDemo extends Thread {
 		try {
 			for (int i = 4; i > 0; i--) {
 				System.out.println("Thread: " + threadName + ", " + i);
-				// 让线程睡醒一会
 				Thread.sleep(1000);
 			}
 		} catch (InterruptedException e) {
