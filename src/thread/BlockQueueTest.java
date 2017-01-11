@@ -1,4 +1,4 @@
-package blockingQueue;
+package thread;
 
 import java.io.File;
 import java.util.Scanner;
@@ -21,6 +21,7 @@ public class BlockQueueTest {
 		BlockingQueue<File> queue = new ArrayBlockingQueue<>(FILE_QUEUE_SIZE);
 		FileEnumerationTask enumerationTask = new FileEnumerationTask(queue, new File(directory));
 		new Thread(enumerationTask).start();
+		// 开启100个线程执行查找
 		for (int i = 1; i <= SEARCH_THREADS; i++) {
 			new Thread(new SearchTask(queue, keyword)).start();
 		}
@@ -72,7 +73,7 @@ class FileEnumerationTask implements Runnable {
 			if (file.isDirectory()) {
 				enumerate(file);
 			} else {
-				 System.out.println("put "+file.toString()+" into queue");
+				// System.out.println("put " + file.toString() + " into queue");
 				queue.put(file); // throws InterruptedException
 			}
 		}
@@ -103,6 +104,7 @@ class SearchTask implements Runnable {
 				if (file == FileEnumerationTask.DUMMY) {
 					queue.put(file);
 					done = true;
+					System.exit(0);
 				} else {
 					search(file);
 				}

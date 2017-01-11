@@ -1,4 +1,4 @@
-package future;
+package thread;
 
 import java.io.File;
 import java.io.IOException;
