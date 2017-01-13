@@ -20,6 +20,8 @@ public class FutureTest {
 		System.out.println("Enter keyword (e.g. volatile):");
 		String keyword = in.nextLine();
 		
+		long startTime =  System.currentTimeMillis();
+		
 		MathCounter counter = new MathCounter(new File(directory), keyword);
 		FutureTask<Integer> task = new FutureTask<>(counter);
 		new Thread(task).start();
@@ -31,6 +33,10 @@ public class FutureTest {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		
+		long endTime =  System.currentTimeMillis();
+		long interval = endTime-startTime;
+		System.out.println("Running time = "+interval);
 
 	}
 
