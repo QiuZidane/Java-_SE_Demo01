@@ -102,9 +102,9 @@ class SearchTask implements Runnable {
 			while (!done) {
 				File file = queue.take(); // 取出队列中的头元素
 				if (file == FileEnumerationTask.DUMMY) {
-					queue.put(file);
+					queue.put(file); // 这里要放回去，不然其他线程会取不到DUMMY
 					done = true;
-					System.exit(0);
+					// System.exit(0); // 这里不能退出，因为有可能其他线程还在查找
 				} else {
 					search(file);
 				}
