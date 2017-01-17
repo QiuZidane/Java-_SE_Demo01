@@ -37,11 +37,11 @@ public class MyClass1 {
 
 	/**
 	 * @author QiuZidane
-	 *         <h2>MyClass1�Ĺ��췽��</h2>
+	 *         <h1>MyClass1</h1>
 	 * @param int1
 	 *            TODO
 	 * 
-	 * @see <a href="www.baidu.com">BaiDuһ��</a>
+	 * @see <a href="www.baidu.com">BaiDu</a>
 	 */
 	MyClass1(String initString, int int1) {
 
@@ -49,7 +49,6 @@ public class MyClass1 {
 
 	}
 
-	// ���췽�� -> ��ͬ�� public static MyClass1() ���� MyClass1()
 	public MyClass1() {
 		// TODO Auto-generated constructor stub
 	}
@@ -85,9 +84,6 @@ public class MyClass1 {
 		System.out.println(Arrays.toString(arrlist));
 	}
 
-	/**
-	 * ���ڲ����ַ����֪ʶ��
-	 */
 	private void about_string() {
 
 		System.out.println("string1 = " + this.string1);
@@ -111,13 +107,11 @@ public class MyClass1 {
 	/**
 	 * 
 	 * @param datestr
-	 *            ����
 	 */
 	public void about_date() {
 		Date myDate = new Date();
 		// Date myDate2 = new Date(99, 2, 2);
 
-		// ʹ��toString()������ʾ����ʱ��
 		System.out.println(myDate.toString());
 		// System.out.println(myDate2.getTime());
 
@@ -209,9 +203,19 @@ public class MyClass1 {
 
 		MyClass1 mc1 = new MyClass1("abc", 123);
 
+		
+		ArrayList<String> aList=new ArrayList<>();
+		aList.add("123");
+		aList.add("234");
+		String[] arr = new String[aList.size()];
+		aList.toArray(arr);
+		System.out.println(Arrays.toString(arr));
+		aList.remove("234");
+		System.out.println(aList);
+		
 		// mc1.about_arrayList();
 		// mc1.about_array();
-		 mc1.about_enum();
+//		 mc1.about_enum();
 		// mc1.about_string();
 		// mc1.about_date();
 		// mc1.about_decimal();

@@ -25,14 +25,12 @@ public class ThreadPoolTest {
 		try {
 			System.out.println(result.get() + "matching files");
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (ExecutionException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		pool.shutdown();
+		pool.shutdown();//用完要关闭pool
 		int largestPoolSize = ((ThreadPoolExecutor) pool).getLargestPoolSize();
 		System.out.println("largest pool size=" + largestPoolSize);
 		
@@ -87,7 +85,7 @@ class MatchCounter implements Callable<Integer> {
 					MatchCounter counter = new MatchCounter(file, keyword, pool);
 					// 将MatchCounter实例submit到pool，返回future结果
 					Future<Integer> result = pool.submit(counter);
-					// 将结果放入list，待后续处理
+					// 将结果放入list
 					results.add(result);
 				} else {
 					System.out.println("searching file:"+file.toString());

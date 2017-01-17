@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
 
@@ -15,7 +18,7 @@ import java.util.concurrent.FutureTask;
  * @author EvaZis
  *
  */
-public class FutureTest2 {
+public class ThreadPoolTest2 {
 
 	public static void main(String[] args) {
 
@@ -23,19 +26,23 @@ public class FutureTest2 {
 		String keyword = "Delegate";
 		long starttime = System.currentTimeMillis();
 
+		// 新建线程池
+		ExecutorService pool = Executors.newCachedThreadPool();
+
 		// 新建线程任务，开始查找
-		CountFiles cf = new CountFiles(dir, keyword);
-		FutureTask<ArrayList<String>> task = new FutureTask<>(cf);
-		new Thread(task).start();
+		CountFileByPool cf = new CountFileByPool(dir, keyword, pool);
+		Future<ArrayList<String>> result = pool.submit(cf);
 
 		try {
-			ArrayList<String> content = task.get();
+			ArrayList<String> content = result.get();
 			for (String line : content) {
 				System.out.println(line);
 			}
 		} catch (InterruptedException | ExecutionException e) {
 			e.printStackTrace();
 		}
+		
+		pool.shutdown();
 
 		long endtime = System.currentTimeMillis();
 		System.out.println("cast time = " + (endtime - starttime));
@@ -44,15 +51,17 @@ public class FutureTest2 {
 
 }
 
-class CountFiles implements Callable<ArrayList<String>> {
+class CountFileByPool implements Callable<ArrayList<String>> {
 
 	private File _dir;
 	private String _keyword;
+	private ExecutorService _pool;
 	private ArrayList<String> content; // 存放当次线程中含有关键字的行，每行占一个元素位置
 
-	public CountFiles(File dir, String keyword) {
+	public CountFileByPool(File dir, String keyword, ExecutorService pool) {
 		_dir = dir;
 		_keyword = keyword;
+		_pool = pool;
 	}
 
 	public ArrayList<String> call() {
@@ -66,11 +75,10 @@ class CountFiles implements Callable<ArrayList<String>> {
 			for (File file : files) {
 				if (file.isDirectory()) {
 
-					// 如果是目录，则新开一个线程类来统计
-					CountFiles cFiles = new CountFiles(file, _keyword);
-					FutureTask<ArrayList<String>> task = new FutureTask<>(cFiles); // 将Callable转换成Future和Runnable
-					results.add(task); // 将任务加入到list中
-					new Thread(task).start(); // 启动任务
+					// 如果是目录，则将其放入线程池内进行统计
+					CountFileByPool countFileByPool = new CountFileByPool(file, _keyword, _pool);
+					Future<ArrayList<String>> result = _pool.submit(countFileByPool);
+					results.add(result); // 将结果加入到list中
 
 				} else {
 
@@ -127,4 +135,3 @@ class CountFiles implements Callable<ArrayList<String>> {
 	}
 
 }
-
