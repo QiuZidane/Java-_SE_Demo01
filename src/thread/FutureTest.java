@@ -27,7 +27,7 @@ public class FutureTest {
 		new Thread(task).start();
 		
 		try {
-			System.out.println(task.get()+" matching files");
+			System.out.println(task.get()+" matching files");  // get时如果计算结果没出来，会阻塞
 		} catch (ExecutionException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
@@ -53,7 +53,7 @@ class MathCounter implements Callable<Integer> {
 
 	private File directory;
 	private String keyword;
-	private int count;
+//	private int count;
 
 	/**
 	 * Constucts a MathCounter
@@ -63,8 +63,9 @@ class MathCounter implements Callable<Integer> {
 		this.keyword = keyword;
 	}
 
+	@Override
 	public Integer call() {
-		count = 0;
+		int count = 0;
 		try {
 			File[] files = directory.listFiles();
 			List<Future<Integer>> results = new ArrayList<>();
@@ -72,7 +73,7 @@ class MathCounter implements Callable<Integer> {
 			for (File file : files) {
 				if (file.isDirectory()) {
 					MathCounter counter = new MathCounter(file, keyword);
-					FutureTask<Integer> task = new FutureTask<>(counter);
+					FutureTask<Integer> task = new FutureTask<>(counter);  // 将Callable转换成Future和Runnable
 					results.add(task);
 					new Thread(task).start();
 
@@ -96,7 +97,7 @@ class MathCounter implements Callable<Integer> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return count;
+		return count; // get的咚咚
 	}
 
 	/**
