@@ -1,6 +1,12 @@
 package thread;
 
+import java.io.BufferedOutputStream;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,6 +17,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.FutureTask;
+import io.*;
 
 /**
  * 打印出现keyword的行
@@ -20,10 +27,13 @@ import java.util.concurrent.FutureTask;
  */
 public class ThreadPoolTest2 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		File dir = new File("/Users/EvaZis/Documents/NewBird^^/Missions");
 		String keyword = "Delegate";
+		
+		StringBuilder totalContent = new StringBuilder();
+		
 		long starttime = System.currentTimeMillis();
 
 		// 新建线程池
@@ -36,12 +46,15 @@ public class ThreadPoolTest2 {
 		try {
 			ArrayList<String> content = result.get();
 			for (String line : content) {
-				System.out.println(line);
+				// System.out.println(line);
+				// 使用缓存的wirter，特别快!
+				totalContent.append(line+"\r");
 			}
+			FileTest1.getFileHander().writeStrToFile_buffer(totalContent.toString());
 		} catch (InterruptedException | ExecutionException e) {
 			e.printStackTrace();
 		}
-		
+
 		pool.shutdown();
 
 		long endtime = System.currentTimeMillis();
