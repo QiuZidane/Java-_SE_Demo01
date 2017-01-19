@@ -47,7 +47,7 @@ public class ThreadPoolTest2 {
 			ArrayList<String> content = result.get();
 			for (String line : content) {
 				// System.out.println(line);
-				// 使用缓存的wirter，特别快!
+				// 拼装字符串
 				totalContent.append(line+"\r");
 			}
 			FileTest1.getFileHander().writeStrToFile_buffer(totalContent.toString());
