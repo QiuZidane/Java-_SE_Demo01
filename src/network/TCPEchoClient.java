@@ -8,20 +8,17 @@ import java.net.SocketAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
+
+/**
+ * 
+ * 1.通过new Socket(server, servPort)创建Socket实例 <br>
+ * 
+ */
 public class TCPEchoClient {
 
-	/**
-	 * 
-	 * @param args
-	 *            java TCPEchoClient server.example.com "Echo this"
-	 * @throws IOException
-	 * @throws UnknownHostException
-	 * @throws InterruptedException 
-	 * 
-	 */
 	public static void main(String[] margs) throws UnknownHostException, IOException, InterruptedException {
 
-		String[] args = { "127.0.0.1", "Echo this 1234567", "9090" };
+		String[] args = { "127.0.0.1", "Echo this hahahahaha", "9090" };
 
 		if ((args.length < 2) || (args.length > 3)) {
 			throw new IllegalArgumentException("IllegalArgumentException Parameter(s)");
@@ -34,7 +31,14 @@ public class TCPEchoClient {
 
 		int servPort = (args.length == 3) ? Integer.parseInt(args[2]) : 7;
 
-		Socket socket = new Socket(server, servPort);
+		Socket socket = null;
+		
+		try {
+			
+			socket = new Socket(server, servPort);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		System.out.println("Connected to server...sending echo string");
 		System.out.println("LocalSocketAddress=" + socket.getLocalSocketAddress()); // 本书例中SocketAddress方法返回的都是InetSocketAddress实例，而该实例中封装了一个InetAddress和一个端口号
@@ -50,7 +54,7 @@ public class TCPEchoClient {
 		int bytesRcvd; // 最后一次读取的字节数
 
 		while (totalBytesRcvd < sendData.length) {
-			// 读取过程中，TCP连接被另一端关闭，read会返回-1，这里
+			// 读取过程中，TCP连接被另一端关闭，read会返回-1
 			if ((bytesRcvd = in.read(receiveData, totalBytesRcvd, sendData.length - totalBytesRcvd)) == -1) { 
 				throw new SocketException("Connection closed prematurely");
 			}

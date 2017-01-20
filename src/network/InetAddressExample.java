@@ -9,6 +9,15 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.Enumeration;
 
+/**
+ * 
+ * 1.NetworkInterface.getNetworkInterfaces() 可获取主机中每个接口的NetworkInterface类实例 <br>
+ * 2.使用NetworkInterface实例方法获取接口的名字，ip等信息，比如getInetAddresses() <br>
+ * 3.InetAddress类代表IP地址，使用InetAddress.getAllByName(String)可创建InetAddress实例数组 <br>
+ * 4.通过getInetAddresses()获得InetAddress类实例，可用于获得IP信息，如判断IPV4或IPV6，地址等 <br>
+ * 
+ * 
+ */
 public class InetAddressExample {
 
 	public static void main(String[] args) throws IOException {
@@ -52,7 +61,7 @@ public class InetAddressExample {
 					if (address.isReachable(2000)) {
 						System.out.println(address.getHostName() + " is reachable");
 						System.out.println(address.toString() + " is reachable");
-						System.out.println(address.getCanonicalHostName() + " is reachable");
+						System.out.println(address.getCanonicalHostName() + " is reachable"); // 返回的是域名对应的IP地址
 						System.out.println(address.getHostName() + "/" + address.getHostAddress());
 					}else{
 						System.err.println("cannot reach "+address.getHostName());

@@ -10,11 +10,14 @@ import java.net.SocketAddress;
 
 /**
  * @see TCP服务器
- * @author EvaZis 工作步骤： 1.创建ServerSocket实例并制定本地端口，用于监听指定端口收到的连接 2.重复执行：
- *         a.调用ServerSocket的accept()方法获取下一个客户端连接，基于该连接创建Socket实例。
- *         b.使用上一步中的Socket实例的InputStream和OutputStream与客户端通信
- *         c.通信完成后，使用Socket.close()关闭该客户端的套接字连接
- *
+ * 工作步骤： 
+ * 1.创建ServerSocket实例并制定本地端口，用于监听指定端口收到的连接 <br> 
+ * 2.重复执行：<br>
+ *      a.调用ServerSocket的accept()方法获取下一个客户端连接，基于该连接创建Socket实例.<br>
+ *      b.使用上一步中的Socket实例的InputStream和OutputStream与客户端通信. <br>
+ *      c.通信完成后，使用Socket.close()关闭该客户端的套接字连接. <br>
+ * 相关方法：
+ * 1.clientSocket.getRemoteSocketAddress() 获取客户端socket的ip地址(含端口)
  */
 public class TCPEchoServer {
 
@@ -68,6 +71,11 @@ public class TCPEchoServer {
 		int recvMsgSize; // 接收信息的大小
 		byte[] receiveBuf = new byte[1]; // 接收缓存器
 
+		int wait = 0;
+		while(wait++ <10){
+			Thread.sleep(1000);
+			System.out.println("wait "+wait+" seconds");
+		}
 		// accept()方法会阻塞等待，直到有新的连接请求到来
 		// 如果服务端未调用accept()，连接就已经到达，那么连接将排入队列中，这时一调用accept()就会立刻响应了
 		Socket clientSocket = serverSocket.accept(); // 获取客户端连接
@@ -94,13 +102,7 @@ public class TCPEchoServer {
 
 		TCPEchoServer server = new TCPEchoServer();
 
-		String[] args = { "9090" };
-
-		if (args.length != 1) {
-			throw new IllegalAccessException("参数错误");
-		}
-
-		int servPort = Integer.parseInt(args[0]);
+		int servPort = Integer.parseInt("9090");
 
 		ServerSocket serverSocket = new ServerSocket(servPort);
 
@@ -108,10 +110,6 @@ public class TCPEchoServer {
 		System.out.println("LocalSocketAddress=" + serverSocket.getLocalSocketAddress());
 		System.out.println("LocalPort=" + serverSocket.getLocalPort());
 
-		// int recvMsgSize; // 接收信息的大小
-
-		// byte[] receiveBuf = new byte[BUFSIZE]; // 接收缓存器
-		// byte[] helloByte = "Hello World again!".getBytes("ISO-8859-1");
 
 		while (true) { // 长期运行，接收和发送的连接
 
