@@ -1,4 +1,4 @@
-package network;
+package network.votedemo;
 
 import java.io.IOException;
 

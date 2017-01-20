@@ -1,4 +1,4 @@
-package network;
+package network.votedemo;
 
 import innerClass.Outer.inner;
 

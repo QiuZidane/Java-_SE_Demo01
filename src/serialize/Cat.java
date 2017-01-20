@@ -14,6 +14,8 @@ import java.io.Serializable;
 public class Cat implements Serializable {
 
 	private String name;
+	
+	public static int age = 10;
 
 	public Cat() {
 		this.name = "new cat";
@@ -30,6 +32,8 @@ public class Cat implements Serializable {
 	public static void main(String[] args) {
 
 		Cat cat = new Cat();
+		
+		Cat.age = 20;
 
 		byte[] buff = null;
 
