@@ -7,7 +7,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class DelimFramer implements IFramer {
+/**
+ * 实现了基于定界符的成帧方法
+ * @author QZidane
+ *
+ */
+public class DelimFramer implements Framer {
 
 	private InputStream _in; // 数据源
 	private static final byte DELIMITER = "\n".getBytes()[0]; // 定界符
@@ -36,6 +41,11 @@ public class DelimFramer implements IFramer {
 
 	}
 
+	/**
+	 * 如果在遇到定界符之前就已经到了流的终点，则分两种情况：<br>
+	 * 一是从帧的构造开始或从遇到前一个定界符以来，缓存区已经接收了一些字节，这时程序将抛出一个异常；<br>
+	 * 否则nextMsg()方法将返回null以表示全部消息已接收完
+	 */
 	@Override
 	public byte[] nextMsg() throws IOException {
 

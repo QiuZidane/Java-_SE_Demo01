@@ -3,7 +3,7 @@ package network;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public interface IFramer {
+public interface Framer {
 	/**
 	 * 添加成帧信息并将指定消息输出
 	 * @param message
