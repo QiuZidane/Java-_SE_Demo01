@@ -7,6 +7,7 @@ import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -33,9 +34,13 @@ public class TCPEchoClient {
 
 		Socket socket = null;
 		
+		
+		
 		try {
 			
 			socket = new Socket(server, servPort);
+			TimeUnit.MILLISECONDS.sleep(2000);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
