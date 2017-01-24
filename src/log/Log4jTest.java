@@ -52,7 +52,7 @@ public class Log4jTest {
 		PropertyConfigurator.configure("./src/log/Log4j.properties"); // 使用Java配置文件格式进行配置
 		// DOMConfigurator.configure(""); // 读取XML形式的配置文件
 
-		Logger logger = Logger.getRootLogger();
+//		Logger logger = Logger.getRootLogger();
 		logger.debug("debug");
 		logger.error("error");
 		logger.error(getStackTrace());

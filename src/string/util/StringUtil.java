@@ -1,4 +1,4 @@
-package com.sun.util;
+package string.util;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;

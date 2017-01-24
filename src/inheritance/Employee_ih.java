@@ -8,6 +8,10 @@ public class Employee_ih {
 	private String name;
 	private double salary;
 	private Date hireDay;
+	
+	public Employee_ih() {
+		System.out.println("init!");
+	}
 
 	public Employee_ih(String n, double s, int year, int month, int day) {
 		name = n;
