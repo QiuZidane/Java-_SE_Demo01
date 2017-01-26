@@ -42,6 +42,7 @@ public class ThreadPoolTest2 {
 		// 新建线程任务，开始查找
 		CountFileByPool cf = new CountFileByPool(dir, keyword, pool);
 		Future<ArrayList<String>> result = pool.submit(cf);
+		
 
 		try {
 			ArrayList<String> content = result.get();

@@ -3,6 +3,7 @@ package network.thread;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,6 +24,8 @@ public class EchoProtocol implements Runnable {
 	public static void handleEchoClient(Socket clientSock, Logger logger) {
 
 		try {
+			
+			TimeUnit.SECONDS.sleep(3);
 
 			InputStream in = clientSock.getInputStream();
 			OutputStream out = clientSock.getOutputStream();
@@ -58,8 +61,6 @@ public class EchoProtocol implements Runnable {
 	public void run() {
 		
 		handleEchoClient(clientSocket, logger);
-		
-		
 
 	}
 
