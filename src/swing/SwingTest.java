@@ -11,7 +11,9 @@ import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.ButtonModel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -37,6 +39,12 @@ public class SwingTest {
 		jFrame.setVisible(true);
 
 	}
+	
+	public void about_model(){
+		JButton jButton = new JButton("按钮1");
+		ButtonModel model = jButton.getModel();
+		System.out.println(model.isEnabled());
+	}
 
 	/**
 	 * 
@@ -54,6 +62,8 @@ public class SwingTest {
 			public void run() {
 
 				new SwingTest().createFrame("Frame1");
+				new SwingTest().about_model();
+
 			}
 		});
 
@@ -91,7 +101,8 @@ public class SwingTest {
 
 		// System.out.println("1234");
 		// System.exit(123);
-
+		
+		
 	}
 
 }
@@ -130,6 +141,7 @@ class SimpleFrame extends JFrame {
 		Image image = new ImageIcon("star.png").getImage();
 		setIconImage(image);
 	}
+	
 
 }
 

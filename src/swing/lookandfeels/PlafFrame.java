@@ -21,6 +21,7 @@ public class PlafFrame extends JFrame{
 	
 		buttonPanel = new JPanel();
 		
+		// 获得系统支持的观感类型信息
 		UIManager.LookAndFeelInfo[] infos = UIManager.getInstalledLookAndFeels();
 		for(UIManager.LookAndFeelInfo info: infos){
 			System.out.println("info.getName="+info.getName());

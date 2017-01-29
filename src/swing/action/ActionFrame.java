@@ -3,6 +3,11 @@ package swing.action;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -21,10 +26,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 import javax.swing.WindowConstants;
+import javax.swing.event.MouseInputListener;
 
 /**
  *
+ * 示例内容：
  * 将动作和键盘按钮结合 比如Ctrl+Y实现改变Panel颜色
+ * 鼠标事件
  *
  */
 public class ActionFrame extends JFrame {
@@ -45,18 +53,38 @@ public class ActionFrame extends JFrame {
 		Action blueAction = new ColorAction("Blue", new ImageIcon("star.png"), Color.BLUE);
 		Action redAction = new ColorAction("Red", new ImageIcon("star.png"), Color.RED);
 
+		
+		// 鼠标事件
+		JButton blueButton = new JButton(blueAction);
+		blueButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				System.out.println("mousePressed");
+			}
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				System.out.println("mouseReleased");
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("mouseClicked");
+			}
+		});
+		
 		// 加入到panel中
 		buttonPanel.add(new JButton(yellowAction));
-		buttonPanel.add(new JButton(blueAction));
+		buttonPanel.add(blueButton);
 		buttonPanel.add(new JButton(redAction));
-		
+
 		Action actionYYY = new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// xxx 动作处理
 			}
 		};
-		
+
 		buttonPanel.add(new JButton(new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -68,12 +96,12 @@ public class ActionFrame extends JFrame {
 
 		// 关联按钮和名字
 		InputMap imap = buttonPanel.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT); // 通过父组建获得输入映射
-		imap.put(KeyStroke.getKeyStroke("typed a"), "YYY"); // 将输入a这个键盘输入事件添加到映射中，并与事件映射的键值"YYY"关联
+		imap.put(KeyStroke.getKeyStroke("typed a"), "YYY"); // 将输入a这个键盘输入事件添加到映射中，并与动作映射键值"YYY"关联
 		imap.put(KeyStroke.getKeyStroke("ctrl A"), "YYY"); //
 		imap.put(KeyStroke.getKeyStroke("ctrl B"), "panel.blue"); //
 		imap.put(KeyStroke.getKeyStroke("ctrl R"), "panel.red"); //
 
-		// 关联名字和动作
+		// 获取动作和动作映射键值
 		ActionMap aMap = buttonPanel.getActionMap();
 		aMap.put("YYY", yellowAction);
 		aMap.put("panel.blue", blueAction);
@@ -115,6 +143,39 @@ public class ActionFrame extends JFrame {
 
 			@Override
 			public void windowActivated(WindowEvent e) {
+			}
+		});
+
+		addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				System.out.println("mouseReleased");
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				System.out.println("mousePressed");
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				System.out.println("mouseExited");
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				System.out.println("mouseEntered");
+
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("mouseClicked");
+
 			}
 		});
 
