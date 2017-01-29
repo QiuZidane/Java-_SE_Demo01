@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 /**
  * 
  * ************* 匿名内部类做法 *************
- * 将要实现的动作放在匿名内部类，见ButtonFrame_anonymous <br>
+ * 将要实现的动作放在匿名内部类 <br>
  * 
  */
 public class ButtonFrame_anonymous extends JFrame implements ActionListener {
@@ -82,6 +82,7 @@ public class ButtonFrame_anonymous extends JFrame implements ActionListener {
 		if (e.getSource() == blueButton) {
 			// e.getActionCommand() 返回动作事件相关命令字符串，如果是按钮，就返回按钮标签
 			System.out.println(e.getActionCommand());
+			buttonPanel.setBackground(Color.blue);
 		}
 		
 		
