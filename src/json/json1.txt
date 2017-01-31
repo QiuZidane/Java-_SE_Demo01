@@ -1,0 +1,8 @@
+{"age":25,
+"name":null,
+"members":["zidane","even","jane","alax"],
+"obj1":{
+	"A":"AAA",
+	"B":"BBB"
+	}
+}

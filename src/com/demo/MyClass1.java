@@ -55,6 +55,7 @@ public class MyClass1 {
 
 	protected void about_array() {
 		int[] intarr1 = new int[10];
+		String[] stringArr1 = new String[]{"111","222"};
 		intarr1[0] = 1;
 		System.out.println(Arrays.toString(intarr1));
 
@@ -82,6 +83,7 @@ public class MyClass1 {
 		list.toArray(arrlist);
 		System.out.println(list);
 		System.out.println(Arrays.toString(arrlist));
+		System.out.println(Arrays.toString(stringArr1));
 	}
 
 	private void about_string() {
@@ -220,6 +222,8 @@ public class MyClass1 {
 		// mc1.about_date();
 		// mc1.about_decimal();
 		// mc1.about_array();
+		
+		mc1.about_array();
 		 
 		 
 
