@@ -2,18 +2,22 @@ package json;
 
 import java.awt.CardLayout;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 import com.google.gson.annotations.SerializedName;
 
-public class UserBean {
+public class UserBeanComplex {
 
 	@SerializedName("NAME")
 	private String name;
 	private short age;
 	private transient String ignore; // transient声明的属性不会生成到json中
-	private String birthDay;
+	private Date birthDay;
+	private Set<String> major; // 职业
 	
-	public String getName() {		
+
+	public String getName() {
 		return name;
 	}
 
@@ -36,13 +40,21 @@ public class UserBean {
 	public void setIgnore(String ignore) {
 		this.ignore = ignore;
 	}
-	
-	public String getBirthDay() {
+
+	public Date getBirthDay() {
 		return birthDay;
 	}
 
-	public void setBirthDay(String birthDay) {
-		this.birthDay = birthDay;
+	public void setBirthDay(int year, int month, int date) {
+		this.birthDay = new Date(year, month, date);
+	}
+	
+	public Set<String> getMajor(){
+		return major;
+	}
+	
+	public void setMajor(Set<String> major){
+		this.major = major;
 	}
 
 	public static void main(String[] args) {

@@ -9,7 +9,7 @@ import java.util.Map;
 
 import org.json.*;
 
-public class JsonTest {
+public class JsonObjectTest {
 
 	private static Map<String, Object> map1 = new HashMap<String, Object>();
 
@@ -19,7 +19,7 @@ public class JsonTest {
 		// createJsonObjectByMap();
 		// createByBean();
 		try {
-			readJson();
+			readJsonFromFile();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,10 +85,10 @@ public class JsonTest {
 
 	}
 
-	private static void readJson() throws IOException {
+	private static void readJsonFromFile() throws IOException {
 
-		File file = new File(JsonTest.class.getResource("./json1.txt").getFile());
-		System.out.println(JsonTest.class.getResource("./json1.txt").getFile());
+		File file = new File(JsonObjectTest.class.getResource("./json1.txt").getFile());
+		System.out.println(JsonObjectTest.class.getResource("./json1.txt").getFile());
 
 		FileReader reader = new FileReader(file);
 		char[] cbuf = new char[(int) file.length()];

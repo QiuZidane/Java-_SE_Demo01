@@ -32,6 +32,7 @@ public class DateTest {
 	}
 
 	public void getCalendar() {
+		
 		GregorianCalendar now = new GregorianCalendar();
 
 		long mi_second = now.getTimeInMillis();
@@ -46,6 +47,29 @@ public class DateTest {
 
 		System.out.println(formatTime);
 	}
+	
+	public static GregorianCalendar setDate_Calendar(int year,int month,int dayOfMonth,int hourOfDay,int minute ) {
+		
+		GregorianCalendar Calendar = new GregorianCalendar(year, month, dayOfMonth, hourOfDay, minute);
+		System.out.println(Calendar.getTime());
+		return Calendar;
+		
+	}
+	
+	public static void printDate_calendar(GregorianCalendar Calendar) {
+		
+		long mi_second = Calendar.getTimeInMillis();
+		int day = Calendar.get(Calendar.DATE);
+		int month = Calendar.get(Calendar.MONTH) + 1;
+		int year = Calendar.get(Calendar.YEAR);
+		int hour = Calendar.get(Calendar.HOUR);
+		int min = Calendar.get(Calendar.MINUTE);
+		int sec = Calendar.get(Calendar.SECOND);
+
+		String formatTime = year + "-" + month + "-" + day + " " + hour + ":" + min + ":" + sec;
+
+		System.out.println(formatTime);
+	}
 
 	public static void main(String[] args) {
 
@@ -53,6 +77,9 @@ public class DateTest {
 
 		dt.getDate_Old();
 		dt.getCalendar();
+		
+		GregorianCalendar calendar = setDate_Calendar(1982, 10, 1, 23, 11);
+		printDate_calendar(calendar);
 
 	}
 
