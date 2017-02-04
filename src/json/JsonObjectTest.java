@@ -87,8 +87,18 @@ public class JsonObjectTest {
 
 	private static void readJsonFromFile() throws IOException {
 
+		String filename = "J森";
+		char[] nchar = filename.toCharArray();
+		byte[] nbyte = filename.getBytes();
+		System.out.println(new String(nchar));
+		
+		
 		File file = new File(JsonObjectTest.class.getResource("./json1.txt").getFile());
 		System.out.println(JsonObjectTest.class.getResource("./json1.txt").getFile());
+//		File file = new File(JsonObjectTest.class.getResource("./"+filename).getFile());
+//		System.out.println(JsonObjectTest.class.getResource("./"+filename).getFile());
+		
+		
 
 		FileReader reader = new FileReader(file);
 		char[] cbuf = new char[(int) file.length()];

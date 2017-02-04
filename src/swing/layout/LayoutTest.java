@@ -50,6 +50,7 @@ public class LayoutTest {
 		JButton yellowButton = createButton("blue", "this is a yellow button",
 				new ImageIcon(LayoutTest.class.getResource("./star1.png")), westPanel, Color.YELLOW);
 		
+		
 
 		MyFrame01 myFrame01 = new MyFrame01();
 		myFrame01.addPanel(westPanel, BorderLayout.CENTER);

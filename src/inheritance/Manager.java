@@ -21,4 +21,12 @@ public class Manager extends Employee_ih {
 
 	}
 	
+	public static void main(String args[]) {
+		
+		Employee_ih ih = new Employee_ih();
+		ih.setName("123");
+		System.out.println(ih.getName());
+		
+	}
+	
 }

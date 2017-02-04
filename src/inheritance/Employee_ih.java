@@ -9,7 +9,7 @@ public class Employee_ih {
 	private double salary;
 	private Date hireDay;
 	
-	public Employee_ih() {
+	protected Employee_ih() {
 		System.out.println("init!");
 	}
 
@@ -18,6 +18,12 @@ public class Employee_ih {
 		salary = s;
 		GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
 		hireDay = calendar.getTime();
+	}
+	
+	public void setName(String name) {
+		
+		this.name = name;
+		
 	}
 
 	public String getName() {
