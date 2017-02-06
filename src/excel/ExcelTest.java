@@ -46,7 +46,7 @@ public class ExcelTest {
 		HSSFSheet sheet = workbook.getSheetAt(sheetNumbers - 1);
 
 		// 获取工作表的行
-		int lastRow = sheet.getLastRowNum(); // 获取最后一行，这个是从0开始算
+		int lastRow = sheet.getPhysicalNumberOfRows(); // 获取实际的行数，这个是从0开始算
 		HSSFRow row = sheet.getRow(lastRow);
 		System.out.println("lastRow=" + lastRow);
 
@@ -64,14 +64,18 @@ public class ExcelTest {
 
 		// 获取工作簿对象
 		HSSFWorkbook workbook = new HSSFWorkbook(new FileInputStream(new File(filepath)));
-		System.out.println(filepath);
+		
+		System.out.println("当前文件路径是="+filepath);
 
-		HSSFSheet sheet = workbook.createSheet("生成的SHEET");
+		HSSFSheet sheet = workbook.createSheet("生成的SHEET1");
 
 		HSSFRow row1 = sheet.createRow(0);
 
 		row1.createCell(0).setCellValue(1);
 		row1.createCell(1).setCellValue(2);
+		
+		workbook.write(new File(filepath));
+		
 
 	}
 
