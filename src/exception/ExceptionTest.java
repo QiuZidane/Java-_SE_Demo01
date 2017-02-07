@@ -21,7 +21,7 @@ public class ExceptionTest {
 	 * 分析堆栈跟踪元素
 	 */
 
-	public void analyTest() {
+	public static void analyTest() {
 		Throwable t = new Throwable();
 		StringWriter out = new StringWriter();
 		t.printStackTrace(new PrintWriter(out));
@@ -64,8 +64,7 @@ public class ExceptionTest {
 		HasResource hr = new HasResource();
 		hr.tryWithResource();
 		
-		System.out.println();
-		
+		analyTest();		
 
 	}
 
