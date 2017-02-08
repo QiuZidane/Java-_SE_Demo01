@@ -1,57 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="6" passed="5">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="66" started-at="2017-02-07T07:16:12Z" finished-at="2017-02-07T07:16:12Z">
+  <suite name="Default suite" duration-ms="38" started-at="2017-02-08T08:20:33Z" finished-at="2017-02-08T08:20:33Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="66" started-at="2017-02-07T07:16:12Z" finished-at="2017-02-07T07:16:12Z">
-      <class name="testng.DataTest">
-        <test-method status="PASS" signature="f(java.lang.Integer, java.lang.String)[pri:0, instance:testng.DataTest@2ef5e5e3]" name="f" duration-ms="14" started-at="2017-02-07T15:16:12Z" data-provider="simpletest" finished-at="2017-02-07T15:16:12Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[1]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[a]]>
-              </value>
-            </param>
-          </params>
+    <test name="Default test" duration-ms="38" started-at="2017-02-08T08:20:33Z" finished-at="2017-02-08T08:20:33Z">
+      <class name="testng.FactoryTest_PartII">
+        <test-method status="PASS" signature="test1()[pri:0, instance:testng.FactoryTest_PartII@39aeed2f]" name="test1" duration-ms="13" started-at="2017-02-08T16:20:33Z" finished-at="2017-02-08T16:20:33Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- f -->
-        <test-method status="PASS" signature="f(java.lang.Integer, java.lang.String)[pri:0, instance:testng.DataTest@2ef5e5e3]" name="f" duration-ms="4" started-at="2017-02-07T15:16:12Z" data-provider="simpletest" finished-at="2017-02-07T15:16:12Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[b]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="test1()[pri:0, instance:testng.FactoryTest_PartII@724af044]" name="test1" duration-ms="2" started-at="2017-02-08T16:20:33Z" finished-at="2017-02-08T16:20:33Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- f -->
-        <test-method status="PASS" signature="被依赖方法0()[pri:0, instance:testng.DataTest@2ef5e5e3]" name="被依赖方法0" duration-ms="3" started-at="2017-02-07T15:16:12Z" finished-at="2017-02-07T15:16:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- 被依赖方法0 -->
-        <test-method status="PASS" signature="被依赖方法1()[pri:0, instance:testng.DataTest@2ef5e5e3]" name="被依赖方法1" duration-ms="2" started-at="2017-02-07T15:16:12Z" depends-on-methods="testng.DataTest.被依赖方法0" finished-at="2017-02-07T15:16:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- 被依赖方法1 -->
-        <test-method status="PASS" signature="依赖别人的方法()[pri:0, instance:testng.DataTest@2ef5e5e3]" name="依赖别人的方法" duration-ms="2" started-at="2017-02-07T15:16:12Z" depends-on-methods="testng.DataTest.被依赖方法0, testng.DataTest.被依赖方法1" finished-at="2017-02-07T15:16:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- 依赖别人的方法 -->
-      </class> <!-- testng.DataTest -->
+        </test-method> <!-- test1 -->
+      </class> <!-- testng.FactoryTest_PartII -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

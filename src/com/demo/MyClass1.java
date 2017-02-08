@@ -55,13 +55,13 @@ public class MyClass1 {
 
 	protected void about_array() {
 		int[] intarr1 = new int[10];
-		String[] stringArr1 = new String[]{"111","222"};
+		String[] stringArr1 = new String[] { "111", "222" };
 		intarr1[0] = 1;
 		System.out.println(Arrays.toString(intarr1));
 
 		String[] strarr1 = new String[10];
 		for (int i = 0; i < strarr1.length; i++) {
-			strarr1[i] = "����";
+			strarr1[i] = "1234";
 		}
 
 		System.out.println(Arrays.toString(strarr1));
@@ -205,29 +205,27 @@ public class MyClass1 {
 
 		MyClass1 mc1 = new MyClass1("abc", 123);
 
-		
-		ArrayList<String> aList=new ArrayList<>();
-		aList.add("123");
-		aList.add("234");
-		String[] arr = new String[aList.size()];
-		aList.toArray(arr);
-		System.out.println(Arrays.toString(arr));
-		aList.remove("234");
-		System.out.println(aList);
-		
+		// ArrayList<String> aList=new ArrayList<>();
+		// aList.add("123");
+		// aList.add("234");
+		// String[] arr = new String[aList.size()];
+		// aList.toArray(arr);
+		// System.out.println(Arrays.toString(arr));
+		// aList.remove("234");
+		// System.out.println(aList);
+
 		// mc1.about_arrayList();
 		// mc1.about_array();
-//		 mc1.about_enum();
+		// mc1.about_enum();
 		// mc1.about_string();
 		// mc1.about_date();
 		// mc1.about_decimal();
 		// mc1.about_array();
-		
-		mc1.about_array();
-		 
-		 
 
-		
+		// mc1.about_array();
+
+		int[][] a = new int[][] { { 1, 2 }, { 3, 4 } };
+		System.out.println(Arrays.toString(a[0])); // [1, 2]
 
 	}
 

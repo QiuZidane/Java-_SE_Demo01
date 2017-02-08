@@ -18,7 +18,7 @@ public class DataTest {
 	public void f(Integer n, String s) {
 		System.out.println("Integer=" + n);
 		System.out.println("String=" + s);
-		FileUtil.getClassPathByUri("io.FileTest");
+		FileUtil.getClassPathByUri("io.FileTest1");
 
 	}
 	
