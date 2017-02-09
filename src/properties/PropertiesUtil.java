@@ -22,8 +22,7 @@ import file.FileUtil;
  */
 public class PropertiesUtil {
 
-	private static final String filepath = FileUtil.getClassPathByUri("properties.PropertiesUtil")
-			+ "123.properties";
+	private static final String filepath = "config/123.properties";
 
 	public static void getProperties() {
 
@@ -92,7 +91,7 @@ public class PropertiesUtil {
 
 	public static void main(String[] args) {
 
-		// storeProperties();
+		storeProperties();
 		getProperties();
 
 	}
