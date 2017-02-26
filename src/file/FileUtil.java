@@ -8,6 +8,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.URI;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import exception.ExceptionTest;
 
@@ -121,6 +126,13 @@ public class FileUtil {
 
 		System.out.println(getClassPathByUri("file.FileUtil"));
 		// getCurrentProjectPath("log/log.txt");
+		
+		File file = new File("temp/1.jpg");
+//		System.out.println(file.lastModified());
+		Date date = new Date(file.lastModified());
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		System.out.println(format.format(date));
+		
 
 	}
 

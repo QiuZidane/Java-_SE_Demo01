@@ -8,7 +8,10 @@ import java.util.GregorianCalendar;
 
 public class DateTest {
 
-	public void getDate_Old() {
+	/**
+	 * 格式化日期，使用Date
+	 */
+	public void getDate() {
 		Date now = new Date();
 		DateFormat dateFormat = new SimpleDateFormat();
 		String date = dateFormat.format(now);
@@ -75,7 +78,7 @@ public class DateTest {
 
 		DateTest dt = new DateTest();
 
-		dt.getDate_Old();
+		dt.getDate();
 		dt.getCalendar();
 		
 		GregorianCalendar calendar = setDate_Calendar(1982, 10, 1, 23, 11);

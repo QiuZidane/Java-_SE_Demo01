@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.logging.Level;
 
 import io.FileTest1;
 //import org.apache.log4j.xml.DOMConfigurator;
@@ -26,19 +27,21 @@ public class Log4jTest {
 
 	static Logger logger = Logger.getLogger(Log4jTest.class.getName());
 
-	/*
-	 * // 试验系统自带Logger public void sysLogger() { Logger logger =
-	 * Logger.getLogger("logtest"); // 获取Logger logger.setLevel(Level.ALL); //
-	 * 设置级别 Handler handler1 = new MyHandler();
-	 * 
-	 * // 增加处理器 logger.addHandler(handler1); // logger.removeHandler(handler1);
-	 * 
-	 * Exception e = new Exception("exceptiontest");
-	 * 
-	 * logger.log(Level.WARNING, "Exception in echo protocol", e);
-	 * 
-	 * logger.info("hahaha"); logger.finer("this is finer"); }
-	 */
+	// 试验系统自带
+	public void sysLogger() {
+
+		java.util.logging.Logger syslogger = java.util.logging.Logger.getLogger("logtest"); // 获取Logger
+		syslogger.setLevel(Level.ALL); // 设置级别
+		// 增加处理器
+//		Handler handler1 = new MyHandler();	
+		//logger.addHandler(handler1); // logger.removeHandler(handler1);
+
+		Exception e = new Exception("exceptiontest");
+		syslogger.log(Level.WARNING, "Exception in echo protocol", e);
+		syslogger.info("hahaha");
+		syslogger.finer("this is finer");
+
+	}
 
 	public void log4jTest() {
 
@@ -46,20 +49,20 @@ public class Log4jTest {
 		// logger.log(Level.WARNING, Log4jTest.class.getName());
 
 		// 使用缺省Log4j环境-这行貌似不是必须
-		BasicConfigurator.configure(); 
+		BasicConfigurator.configure();
 
 		// 从外部获取配置文件
 		PropertyConfigurator.configure("./src/log/Log4j.properties"); // 使用Java配置文件格式进行配置
 		// DOMConfigurator.configure(""); // 读取XML形式的配置文件
 
-//		Logger logger = Logger.getRootLogger();
+		// Logger logger = Logger.getRootLogger();
 		logger.debug("debug");
 		logger.error("error");
 		logger.error(getStackTrace());
 
 	}
-	
-	public String getStackTrace(){
+
+	public String getStackTrace() {
 		StringWriter sw = new StringWriter();
 		PrintWriter pw = new PrintWriter(sw);
 		Exception exception = new Exception("this is an Exception");
@@ -70,9 +73,9 @@ public class Log4jTest {
 		exception.printStackTrace(ps);
 		exception.printStackTrace(pw);
 
-//		System.out.println(sw.toString());
-//		System.out.println(new String(os.toByteArray()));
-		
+		// System.out.println(sw.toString());
+		// System.out.println(new String(os.toByteArray()));
+
 		return new String(os.toByteArray());
 	}
 
