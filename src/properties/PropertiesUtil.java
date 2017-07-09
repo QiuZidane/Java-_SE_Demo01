@@ -7,7 +7,10 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Collection;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
@@ -57,12 +60,14 @@ public class PropertiesUtil {
 		// 清除当前properties而已，不影响持久化的内容
 		// pp.clear();
 		// pp.list(System.out);
+		
 
 	}
 
 	public static void storeProperties() {
 
 		Properties pp = new Properties();
+				
 		try {
 			pp.load(new FileReader(new File(filepath)));
 		} catch (FileNotFoundException e) {
@@ -83,16 +88,30 @@ public class PropertiesUtil {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("T1", "V1");
+		map.put("T2", "V2");
 
+		pp.putAll(map);
+		
 		pp.list(System.out);
 		System.out.println(filepath);
 
 	}
+	
 
 	public static void main(String[] args) {
 
-		storeProperties();
-		getProperties();
+//		storeProperties();
+//		getProperties();
+		
+		Properties pp = new Properties();
+		pp.put("T1", "V1");
+		
+		System.out.println("==========");
+		
+
 
 	}
 
