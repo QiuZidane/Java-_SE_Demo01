@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="NttTestSuite">
+
+    <!-- 参数传递的案例，在testng案例中定义@Parameter用于接受xml中的数据 -->
+    <!-- 参数定义在外层则所有test都可用 -->
+    <parameter name="excelPath"  value="temp/testng1.xls" />
+    <parameter name="excelPath"  value="temp/testng2.xls" />
+
+<test name="param_test">
+<!--<parameter name="excelPath"  value="temp/testng.xls" />-->
+<!--<parameter name="excelFile"  value="temp/testng.xls" />-->
+<classes>
+    <class name="testng.ntt.Ntt_Parameter" />
+</classes>
+</test>
+        </suite>
+
+
+
+
+
+
+

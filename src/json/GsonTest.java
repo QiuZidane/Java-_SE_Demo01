@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.JSONObject;
 
@@ -85,7 +89,8 @@ public class GsonTest {
 	 */
 	private static void readJsonFromFileHasDate() throws IOException {
 
-		File file = new File(JsonObjectTest.class.getResource("./json1.txt").getFile());
+//		File file = new File(JsonObjectTest.class.getResource("./json1.txt").getFile());
+		File file = new File("json1.txt");
 		char[] filechar = new char[(int) file.length()];
 		Reader reader = new FileReader(file);
 		reader.read(filechar);
@@ -112,9 +117,22 @@ public class GsonTest {
 		ub.setAge((short) 25);
 		ub.setIgnore("被忽略的属性");
 
-		// System.out.println(ub);
-		// createByBean(ub);
-		// createByBean_pretty(ub);
+		List<String> dataList = new ArrayList<>();
+		dataList.add("2017-11-11");
+		dataList.add("2017-11-12");
+		dataList.add("2017-11-13");
+		ub.setDataList(dataList);
+
+
+		Map<String,String> dataMap = new HashMap<>();
+		dataMap.put("2017-11-11","aaaaaaaaaaa我们自己反抗来搭建");
+		dataMap.put("2017-11-12","aaaaa范德萨范德萨");
+		dataMap.put("2017-11-13","aaaaa想23星13星1 ");
+		ub.setDataMap(dataMap);
+
+//		 System.out.println(ub);
+		 createByBean(ub);
+		 createByBean_pretty(ub);
 
 		// 日期属性为字符串类型情况的解析
 		// try {
@@ -124,11 +142,11 @@ public class GsonTest {
 		// }
 
 		// 日期属性为日期类型情况的解析
-		try {
-			readJsonFromFileHasDate();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			readJsonFromFileHasDate();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 
 	}
 

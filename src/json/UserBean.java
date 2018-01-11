@@ -2,6 +2,8 @@ package json;
 
 import java.awt.CardLayout;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -12,8 +14,30 @@ public class UserBean {
 	private short age;
 	private transient String ignore; // transient声明的属性不会生成到json中
 	private String birthDay;
-	
-	public String getName() {		
+	private List<String> dataList;
+	private Map<String,String> dataMap;
+
+	public Map<String, String> getDataMap() {
+		return dataMap;
+	}
+
+	public void setDataMap(Map<String, String> dataMap) {
+		this.dataMap = dataMap;
+	}
+
+	public void setAge(short age) {
+		this.age = age;
+	}
+
+	public List<String> getDataList() {
+		return dataList;
+	}
+
+	public void setDataList(List<String> dataList) {
+		this.dataList = dataList;
+	}
+
+	public String getName() {
 		return name;
 	}
 

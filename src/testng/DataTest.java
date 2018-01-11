@@ -1,5 +1,6 @@
 package testng;
 
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -13,6 +14,12 @@ import file.FileUtil;
  *
  */
 public class DataTest {
+
+	@BeforeSuite
+	public void init(){
+
+	}
+
 	// @Test(dataProvider = "dp") 两种写法都可以，用name指定或者方法名指定dataProvider
 	@Test(dataProvider = "simpletest")
 	public void f(Integer n, String s) {

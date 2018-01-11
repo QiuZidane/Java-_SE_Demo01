@@ -11,13 +11,12 @@ import org.testng.annotations.Factory;
 /**
  * 
  * 通过DataProvider给Factory提供数据
- * 
  *
  */
 public class FactoryTest_Part1 {
 
 	@DataProvider(name = "db111")
-	public Object[] createData() {
+	public Object[][] createData() {
 		return new Object[][] { { "Zidane", 30 }, { "Eva", 26 } };
 	}
 

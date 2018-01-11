@@ -16,7 +16,9 @@ import org.apache.http.util.EntityUtils;
 public class HttpClient {
 
 	public void get() {
+		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
+		
 		try {
 			// 创建httpget.	
 			HttpUriRequest httpget = new HttpGet("https://segmentfault.com/");

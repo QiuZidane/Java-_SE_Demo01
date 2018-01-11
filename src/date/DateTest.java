@@ -1,5 +1,6 @@
 package date;
 
+import javax.xml.crypto.Data;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -21,6 +22,7 @@ public class DateTest {
 		DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		s = format1.format(new Date());
 		System.out.println(s); // 2017-01-19 04:22:33
+
 
 		DateFormat format2 = new SimpleDateFormat("yyyyMMddhhmmss");
 		s = format2.format(new Date());

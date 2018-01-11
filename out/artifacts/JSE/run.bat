@@ -1,0 +1,1 @@
+java -cp JSE.jar;./lib/gson.jar json.GsonTest

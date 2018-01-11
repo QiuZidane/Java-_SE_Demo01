@@ -12,7 +12,7 @@ public class CSMConstant {
 	public static final int MAX_EXCEL_ROWS = 35530;
 	public static final int MAX_SHEET_NUM = 1;
 	public static final String[] TITLE_LIST = {"ip","port","mac"};
-	public static final String SQLITE_DB_NAME = "csm.db";
+	public static final String SQLITE_DB_NAME = "db/csm.db";
 	
 	private static String CURRENT_DATA_FILE = null;
 	
