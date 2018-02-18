@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<E2EAop>
+    <properties>
+        <ScreenClass>com.icbc.e2e.Screen</ScreenClass>
+        <advice_stepCapture>stepCapture</advice_stepCapture>
+        <advice_flowSync>flowSync</advice_flowSync>
+    </properties>
+    <pointCut className="${ScreenClass}" methodName="click" args="String" advice="${advice_stepCapture}" priority="1"></pointCut>
+    <pointCut className="${ScreenClass}" methodName="click" args="String,String" advice="${advice_flowSync}" priority="2"></pointCut>
+    <pointCut className="com.icbc.e2e.ABC" methodName="type" args="String" advice="${advice_flowSync}" priority="1"></pointCut>
+
+</E2EAop>

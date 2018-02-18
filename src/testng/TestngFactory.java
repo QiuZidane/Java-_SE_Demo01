@@ -1,7 +1,9 @@
 package testng;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Vector;
 
 import org.testng.annotations.BeforeSuite;
@@ -9,6 +11,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Factory;
 
 public class TestngFactory {
+
+	public TestngFactory(){
+		System.out.println("333333333333333");
+	}
 
 	@BeforeSuite
 	public void init(){
@@ -25,8 +31,7 @@ public class TestngFactory {
 		System.out.println("11111111111111");
 		Object[] result = new Object[a];
 		for (int i = 0; i < a; i++) {
-			result[i] = new TestngFactoryTest(i * 10);	
-
+			result[i] = new TestngFactoryTest(i * 10);
 		}
 //		Field f=ClassLoader.class.getDeclaredField("classes");
 //		f.setAccessible(true);

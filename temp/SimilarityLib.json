@@ -1,0 +1,18 @@
+{
+  "similarityInfos": {
+    "image#[A1/BB/C1.png]": {
+      "resolution#[1920*1080]": {
+        "resolution": "1920*1080",
+        "scores": [
+          0.911
+        ]
+      }
+    }
+  },
+  "classInfo": {
+    "name": "json.train.TrainLibFactory",
+    "simpleName": "TrainLibFactory",
+    "updateTime": "2018-02-18"
+  },
+  "isModified": false
+}

@@ -1,4 +1,4 @@
-package sql.sqlite;
+package db.sqlite;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

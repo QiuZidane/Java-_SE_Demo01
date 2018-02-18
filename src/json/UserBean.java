@@ -11,6 +11,7 @@ public class UserBean {
 
 	@SerializedName("NAME")
 	private String name;
+	@SerializedName("age111") // 指定age属性在json字符串中的key值
 	private short age;
 	private transient String ignore; // transient声明的属性不会生成到json中
 	private String birthDay;

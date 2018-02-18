@@ -18,6 +18,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper class="sql/mybatis/"/>
+        <mapper class="db/mybatis/"/>
     </mappers>
 </configuration>

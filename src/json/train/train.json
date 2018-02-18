@@ -1,0 +1,25 @@
+{
+  "classInfo": {
+    "name": "com.e2e.TestDemo",
+    "simpleName": "TestDemo",
+    "updateTime": "2018-02-18"
+  },
+  "locationInfoMap": {
+    "image#aaa/bbb/abc.png": {
+      "1920*1080": {
+        "resolution": "1920*1080",
+        "coordinateX": "111",
+        "coordinateY": "333"
+      }
+    },
+    "image#[aaa11/b11bb/abc.png]": {
+      "1920*1080": {
+        "resolution": "1920*1080",
+        "coordinateX": "111",
+        "coordinateY": "333"
+      }
+    }
+  },
+  "isModified": false
+}
+

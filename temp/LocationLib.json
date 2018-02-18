@@ -1,0 +1,17 @@
+{
+  "locationInfos": {
+    "image#[A1/BB/C1.png]": {
+      "resolution#[1920*1080]": {
+        "resolution": "1920*1080",
+        "coordinateX": 1024,
+        "coordinateY": 768
+      }
+    }
+  },
+  "classInfo": {
+    "name": "json.train.LocationLib",
+    "simpleName": "LocationLib",
+    "updateTime": "2018-02-18"
+  },
+  "isModified": false
+}

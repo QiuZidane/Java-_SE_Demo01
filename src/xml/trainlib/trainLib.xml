@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Class name="com.e2e.TestDemo" simpleName="TestDemo">
+    <images>
+        <image name="abc.png" path="ddd/sdfd/abc.png">
+            <locations>
+                <location resolution="1920*1080" coordinateX="123" coordinateY="342"/>
+                <location resolution="1680*1020" coordinateX="113" coordinateY="311"/>
+            </locations>
+            <similarities>
+                <similarity resolution="1920*1080">
+                    <score>0.88</score>
+                    <score>0.864</score>
+                </similarity>
+                <similarity resolution="1680*1020">
+                    <score>0.877</score>
+                    <score>0.865</score>
+                </similarity>
+            </similarities>
+            <updateTime>2018-02-18 10:45:11</updateTime>
+        </image>
+        <image name="abc111.png" path="ddd/sdfd/abc111.png">
+            <locations>
+                <location resolution="1920*1080" coordinateX="123" coordinateY="342"/>
+                <location resolution="1680*1020" coordinateX="113" coordinateY="311"/>
+            </locations>
+            <similarities>
+                <similarity resolution="1920*1080">
+                    <score>0.88</score>
+                    <score>0.864</score>
+                </similarity>
+                <similarity resolution="1680*1020">
+                    <score>0.877</score>
+                    <score>0.865</score>
+                </similarity>
+            </similarities>
+            <updateTime>2018-02-18 10:45:11</updateTime>
+        </image>
+    </images>
+</Class>

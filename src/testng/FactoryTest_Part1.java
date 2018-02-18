@@ -4,12 +4,12 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Factory;
 
 /**
- * 
+ *
  * Factory的思路就是通过调用Test类的构造函数返回Test类对象，放入Object[]内，返回给TestNG框架做处理
- * 
+ *
  */
 /**
- * 
+ *
  * 通过DataProvider给Factory提供数据
  *
  */
